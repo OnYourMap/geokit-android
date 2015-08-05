@@ -174,7 +174,7 @@ public class DemoActivity extends Activity {
 /*
                             // decode instructions
                             for (Route.Instruction instruction : resp.instructions) {
-                                System.out.println(Route.Utility.render2(instruction, getResources()));
+                                System.out.println(Route.Utility.renderInstruction(instruction, getResources()));
                             }
 */
                             Toast.makeText(_this, "route computed", Toast.LENGTH_SHORT).show();
