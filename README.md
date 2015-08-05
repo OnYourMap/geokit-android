@@ -24,12 +24,12 @@ We recommend using Android Studio and Gradle when using OnYourMap Android SDK fo
 Note: Please find below important configuration lines (in red) to add to your gradle files.
 
 In general settings.gradle:
-```smalltalk
+```java
   include ':geokitandroid', ':demo'
 ```
  
 In your application build.gradle:
-```smalltalk
+```xml
   android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
@@ -62,7 +62,7 @@ Be careful with JavaVersion and also compile and target sdk versions.
 ## Creating a map-centric application
 
 In your AndroidManifest.xml, you must define the following lines:
-```smalltalk
+```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -78,7 +78,7 @@ The MapBox SDK is in charge of the mapping part. The OnYourMap tiles can be used
 
 First add a Map view in your application. This can be done by code or xml definition like any other UI class, like this:
 
-```smalltalk
+```xml
 <com.mapbox.mapboxsdk.views.MapView xmlns:mapbox="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/mapview"
 	android:layout_width="fill_parent"
@@ -89,14 +89,14 @@ First add a Map view in your application. This can be done by code or xml defini
 
 To get access to the MapView:
 
-```smalltalk
+```java
 // mapbox view is configured in activity layout xml file
 MapView mv = (MapView) this.findViewById(R.id.mapview);
 ```
 
 Setup OnYourMap tiles for the MapView:
 
-```smalltalk
+```java
 // add onyourmap tile layer as default layer instead of mapbox layer
 String OYM_MAPPING_TEMPLATE = OYM_URL + "?f=m&ft=" + OYM_TILE_FORMAT + "&x={x}&y={y}&z={z}&key=" + OYM_APP_KEY + "&Referer=" + OYM_APP_REFERER;
 TileLayer oymTileLayer = new TileLayer(OYM_MAPPING_TEMPLATE, 512);
@@ -113,7 +113,7 @@ The values for *OYM_MAP_URL*, *OYM_TILE_FORMAT*, *OYM_APP_KEY*, *OYM_APP_REFERER
 
 Map view is ready, define center and zoom level
 
-```smalltalk
+```java
 mv.setCenter(new LatLng(48.86, 2.34));
 mv.setZoom(16f);
 ```
@@ -130,7 +130,7 @@ WSClient oymClient = new WSClient(OYM_URL, OYM_APP_KEY, OYM_APP_REFERER);
 
 You can search places/adresses using the *search* function.
 
-```smalltalk
+```java
 Place.SearchRequest req = new Place.SearchRequest();
 req.address = "rivoli paris";
 ```
@@ -139,7 +139,7 @@ All the parameters available for the request are described in the javadoc.
 
 The request can be processed in a sync or async way:
 
-```smalltalk
+```java
 /* Sync request */
 Place.SearchResponse resp = oymClient.PlaceWS.search(req, null);
 
@@ -162,7 +162,7 @@ oymClient.PlaceWS.search(req, new WSCallback<Place.SearchResponse>() {
 Places can be retrieved around a location using the *nearest* function.
 All the parameters available for the request are described in the javadoc.
 
-```smalltalk
+```java
 final Place.NearestRequest req = new Place.NearestRequest();
 req.location = new LatLng(48.866598, 2.322464);
 req.radius = 100;
@@ -170,7 +170,7 @@ req.radius = 100;
 
 If the radius is 0, only the nearest place will be returned. Otherwise, everything in the radius will be returned.
 
-```smalltalk
+```java
 /* Sync request */
 Place.NearestResponse resp = oymClient.PlaceWS.nearest(req, null);
 
@@ -193,7 +193,7 @@ oymClient.PlaceWS.nearest(req, new WSCallback<Place.NearestResponse>() {
 The function *directions* provides a route between two coordinates.
 All the parameters available for the request are described in the javadoc.
 
-```smalltalk
+```java
 Route.Request req = new Route.Request();
 req.start = new LatLng(48.866598, 2.322464);
 req.end = new LatLng(48.858620, 2.293961);
@@ -203,7 +203,7 @@ req.transportMode = Route.Request.TM_FASTEST_CAR;
 
 Like the geocoding, route can be computed in a sync or async way.
 
-```smalltalk
+```java
 /* Sync request */
 Route.Response resp = oymClient.RouteWS.directions(req, null); 
 
@@ -231,7 +231,7 @@ They can be found in *Route.Utility* class.
 
 The route geometry is provided with the maximum accuracy available. In order to speed up the route shape rendering, an array called "levels" is returned in the *Route.Response* object. This array contains, for each point of the route, all the zoom levels this point should be displayed. The static method *Route.Utility.checkDisplayLevel()* will tell you if a point should be displayed or not, based on this value. That way, the number of points to display can be greatly reduced, with a huge speed boost when rendering long routes.
 
-```smalltalk
+```java
 if (Route.Utility.checkDisplayLevel(displayLevelValue, currentZoomLevel)) {
 	// keep the point for this zoom level
 }
@@ -241,7 +241,7 @@ if (Route.Utility.checkDisplayLevel(displayLevelValue, currentZoomLevel)) {
 
 The instructions returned by the *directions* function must be processed before being displayed on screen. The static method *Route.Utility.renderInstruction()* will transform an encoded instruction into a human readable string.
 
-```smalltalk
+```java
 /* Display all the route instructions */
 for (Route.Instruction instruction : resp.instructions) {
 	System.out.println(Route.Utility.renderInstruction(instruction, getResources()));
