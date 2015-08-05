@@ -1,0 +1,37 @@
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+    <com.mapbox.mapboxsdk.views.MapView xmlns:mapbox="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/mapview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        mapbox:mapid=""
+        mapbox:accessToken=""/>
+
+    <ImageButton
+        android:id="@+id/geocode"
+        android:background="@drawable/a"
+        android:onClick="geocode"
+        android:layout_height="64dp"
+        android:layout_width="64dp"
+        android:layout_gravity="bottom|left"
+        android:paddingLeft="70dp"
+        android:paddingBottom="10dp"
+        />
+
+    <ImageButton
+        android:id="@+id/directions"
+        android:background="@drawable/b"
+        android:onClick="directions"
+        android:layout_height="64dp"
+        android:layout_width="64dp"
+        android:layout_gravity="bottom|right"
+        android:paddingRight="70dp"
+        android:paddingBottom="10dp"
+        />
+
+
+</FrameLayout>
