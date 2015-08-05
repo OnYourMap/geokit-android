@@ -15,36 +15,36 @@ More details about MapBox Android sdk can be found here:
 For more details about OnYourMap, please contact our customer support here: contact@onyourmap.com
 
 The project is divided in two parts:
-- The OnYourMap Web Services library for Android. (androidsdkformapbox)
+- The OnYourMap Web Services library for Android. (geokitandroid)
 - A simple Test application demonstrating both MapBox and OnYourMap sdk integration. (demo)
 
 ## Installation
 
 We recommend using Android Studio and Gradle when using OnYourMap Android SDK for Mapbox.
-Note: Please find below important configuration lines (in red) to add to your gradle files.
+Note: Please find below important configuration lines to add to your gradle files.
 
 In general settings.gradle:
-```java
+```gradle
   include ':geokitandroid', ':demo'
 ```
  
 In your application build.gradle:
-```xml
+```gradle
   android {
-    compileSdkVersion 22
+    compileSdkVersion 22                              
     buildToolsVersion "22.0.1"
 
     defaultConfig {
         applicationId "co.oym.demo"
-        minSdkVersion 9
-        targetSdkVersion 22
+        minSdkVersion 9 
+        targetSdkVersion 22                           
         versionCode 1
         versionName "1.0"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_7   
+        targetCompatibility JavaVersion.VERSION_1_7  
     }
   }
   
@@ -52,7 +52,7 @@ In your application build.gradle:
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile('com.mapbox.mapboxsdk:mapbox-android-sdk:0.7.4@aar') {
-        transitive = true
+        transitive = true                 
     }
     compile project(':geokitandroid')
   }
@@ -140,10 +140,10 @@ All the parameters available for the request are described in the javadoc.
 The request can be processed in a sync or async way:
 
 ```java
-/* Sync request */
+// Sync request
 Place.SearchResponse resp = oymClient.PlaceWS.search(req, null);
 
-/* Asnyc request */
+// Asnyc request
 oymClient.PlaceWS.search(req, new WSCallback<Place.SearchResponse>() {
 	@Override
 	public void onResponse(final Place.SearchResponse resp) {
@@ -171,10 +171,10 @@ req.radius = 100;
 If the radius is 0, only the nearest place will be returned. Otherwise, everything in the radius will be returned.
 
 ```java
-/* Sync request */
+// Sync request
 Place.NearestResponse resp = oymClient.PlaceWS.nearest(req, null);
 
-/* Async request */
+// Async request
 oymClient.PlaceWS.nearest(req, new WSCallback<Place.NearestResponse>() {
 	@Override
 	public void onResponse(final Place.NearestResponse resp) {
@@ -204,10 +204,10 @@ req.transportMode = Route.Request.TM_FASTEST_CAR;
 Like the geocoding, route can be computed in a sync or async way.
 
 ```java
-/* Sync request */
+// Sync request
 Route.Response resp = oymClient.RouteWS.directions(req, null); 
 
-/* Async request */
+// Async request
 oymClient.RouteWS.directions(req, new WSCallback<Route.Response>() {
 	@Override
 	public void onResponse(final Route.Response resp) {
@@ -242,7 +242,7 @@ if (Route.Utility.checkDisplayLevel(displayLevelValue, currentZoomLevel)) {
 The instructions returned by the *directions* function must be processed before being displayed on screen. The static method *Route.Utility.renderInstruction()* will transform an encoded instruction into a human readable string.
 
 ```java
-/* Display all the route instructions */
+// Display all the route instructions 
 for (Route.Instruction instruction : resp.instructions) {
 	System.out.println(Route.Utility.renderInstruction(instruction, getResources()));
 }
