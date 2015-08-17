@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="InvalidPackage">
+        <ignore regexp="okio-1.4.0.jar"/>
+        <ignore regexp="jts-1.13.jar"/>
+    </issue>
+</lint>
+

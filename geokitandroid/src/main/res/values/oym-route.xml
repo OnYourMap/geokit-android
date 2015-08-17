@@ -160,86 +160,16 @@
 	<string name="instr.render.time.hours">hours</string>
 	<string name="instr.render.time.minute">minute</string>
 	<string name="instr.render.time.minutes">minutes</string>
-	
-	
-	
-	
+
+
+
+
 	<!-- LEGACY version -->
-	<string name="instr.1">north</string>
-	<string name="instr.2">north-east</string>
-	<string name="instr.3">east</string>
-	<string name="instr.4">south-east</string>
-	<string name="instr.5">south</string>
-	<string name="instr.6">south-west</string>
-	<string name="instr.7">west</string>
-	<string name="instr.8">north-west</string>
 	<string name="instr.9">slight\u0020left</string>
 	<string name="instr.10">left</string>
 	<string name="instr.11">sharp\u0020left</string>
 	<string name="instr.12">slight\u0020right</string>
 	<string name="instr.13">right</string>
 	<string name="instr.14">sharp\u0020right</string>
-	<string name="instr.15">Head\u0020</string>
-	<string name="instr.16">\u0020on\u0020</string>
-	<string name="instr.17">\u0020toward\u0020</string>
-	<string name="instr.18">Continue</string>
-	<string name="instr.19">\u0020on\u0020</string>
-	<string name="instr.20">Cross\u0020</string>
-	<string name="instr.21">Go\u0020through\u0020</string>
-	<string name="instr.22">\u0020roundabouts</string>
-	<string name="instr.23">Take\u0020tunnel\u0020</string>
-	<string name="instr.24">Cross\u0020</string>
-	<string name="instr.25">Pass\u0020by\u0020</string>
-	<string name="instr.26">Turn\u0020</string>
-	<string name="instr.27">\u0020to\u0020merge\u0020onto\u0020</string>
-	<string name="instr.28">\u0020at\u0020</string>
-	<string name="instr.29">\u0020-\u0020Continue\u0020on\u0020</string>
-	<string name="instr.30">\u0020-\u0020Stay\u0020on\u0020</string>
-	<string name="instr.31">Arrival</string>
-	<string name="instr.32">At\u0020</string>
-	<string name="instr.33">the\u0020roundabout</string>
-	<string name="instr.34">\u0020take\u0020the\u0020</string>
-	<string name="instr.35">1st</string>
-	<string name="instr.36">2nd</string>
-	<string name="instr.37">3rd</string>
-	<string name="instr.38">4th</string>
-	<string name="instr.39">5th</string>
-	<string name="instr.40">6th</string>
-	<string name="instr.41">7th</string>
-	<string name="instr.42">8th</string>
-	<string name="instr.43">9th</string>
-	<string name="instr.44">\u0020exit</string>
-	<string name="instr.45">\u0020onto\u0020</string>
-	<string name="instr.46">Take\u0020the\u0020ramp</string>
-	<string name="instr.47">\u0020onto\u0020</string>
-	<string name="instr.48">\u0020toward\u0020</string>
-	<string name="instr.49">Keep\u0020</string>
-	<string name="instr.50">left</string>
-	<string name="instr.51">right</string>
-	<string name="instr.52">\u0020at\u0020the\u0020fork</string>
-	<string name="instr.53">\u0020follow\u0020signs\u0020for\u0020</string>
-	<string name="instr.54">\u0020and\u0020merge\u0020onto\u0020</string>
-	<string name="instr.55">Toll\u0020road</string>
-	<string name="instr.56">Take\u0020exit\u0020</string>
-	<string name="instr.57">\u0020toward\u0020</string>
-	<string name="instr.58"></string>
-	<string name="instr.59">\u0020to\u0020merge\u0020onto\u0020</string>
-	<string name="instr.60">\u0020toward\u0020</string>
-	<string name="instr.61">Take\u0020the\u0020ramp</string>
-	<string name="instr.68">Leave\u0020your\u0020car</string>
-	<string name="instr.69">\u0020-\u0020Continue\u0020on\u0020</string>
-	<string name="instr.70">Take\u0020</string>
-	<string name="instr.71">\u0020toward\u0020</string>
-	<string name="instr.72">\u0020and\u0020stop\u0020at\u0020</string>
-	<string name="instr.73">wait\u0020time:\u0020</string>
-	<string name="instr.74">Take\u0020</string>
-	<string name="instr.75">\u0020toward\u0020</string>
-	<string name="instr.76">\u0020and\u0020stop\u0020at\u0020</string>
-	<string name="instr.77">wait\u0020time:\u0020</string>
-	<string name="instr.78">Take\u0020exit\u0020</string>
-	<string name="instr.79">hour</string>
-	<string name="instr.80">hours</string>
-	<string name="instr.81">minute</string>
-	<string name="instr.82">minutes</string>
-	
+
 </resources>
