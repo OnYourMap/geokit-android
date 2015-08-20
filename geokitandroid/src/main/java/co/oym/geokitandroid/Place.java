@@ -165,6 +165,75 @@ public class Place {
 					'}';
 		}
 	}
-	
+
+	/**
+	 * A Place Autocomplete request.
+	 */
+	public static class AutocompleteRequest {
+		/** The maximum number of suggested places **/
+		public int maxResponses = 10;
+		/** The address string to complete **/
+		public String place = null;
+		/** The server side profile id to rank suggests (sort/filtering) **/
+		public String profile = null;
+
+		@Override
+		public String toString() {
+			return "AutocompleteRequest{" +
+					"maxResponses=" + maxResponses +
+					", place='" + place + '\'' +
+					", profile='" + profile + '\'' +
+					'}';
+		}
+	}
+
+	/**
+	 * A Place suggest from autocomplete request.
+	 */
+	public static class Suggest {
+		/** The suggested place as a string **/
+		public String place;
+		/** The range of matching characters in the suggest place **/
+		public String range;
+		/** The score of the suggested place **/
+		public int score;
+		/** The type of suggested place **/
+		public int type;
+
+		@Override
+		public String toString() {
+			return "Suggest{" +
+					"place='" + place + '\'' +
+					", range='" + range + '\'' +
+					", score=" + score +
+					", type=" + type +
+					'}';
+		}
+	}
+
+	/**
+	 * A Place Autocomplete response.
+	 */
+	public static class AutocompleteResponse {
+		/** The response time in milliseconds **/
+		public long time;
+		/** The number of suggested places **/
+		public long totalHits;
+		/** The status of the response **/
+		public String status;
+		/** The suggested places **/
+		public java.util.List<Place.Suggest> suggests = new java.util.ArrayList<Place.Suggest>();
+
+		@Override
+		public String toString() {
+			return "AutocompleteResponse{" +
+					"time=" + time +
+					", totalHits=" + totalHits +
+					", status='" + status + '\'' +
+					", suggests=" + suggests +
+					'}';
+		}
+	}
+
 }
 

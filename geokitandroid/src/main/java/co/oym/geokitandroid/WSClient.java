@@ -236,6 +236,51 @@ public class WSClient {
 				return null;
 			}
 		}
+
+		/**
+		 * Get address suggests from an autocomplete string.
+		 * If a callback object is provided, then the method will be executed asynchronously. If callback is null, then the method will be executed synchronously.
+		 * @param request
+		 * @param callback
+		 * @return
+		 * @throws Exception
+		 */
+		public Place.AutocompleteResponse autocomplete(Place.NearestRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
+			return autocomplete(appKey, request, callback);
+		}
+
+		/**
+		 * Get address suggests from an autocomplete string.
+		 * If a callback object is provided, then the method will be executed asynchronously. If callback is null, then the method will be executed synchronously.
+		 * @param appKey
+		 * @param request
+		 * @param callback
+		 * @return
+		 * @throws Exception
+		 */
+		public Place.AutocompleteResponse autocomplete(String appKey, Place.NearestRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
+
+			String jsonObject = jsonify(request);
+
+			com.squareup.okhttp.Request okReq = new com.squareup.okhttp.Request.Builder()
+					.url(webServiceUrl + "/place/autocomplete")
+					.post(RequestBody.create(JSON_TYPE, jsonObject))
+					.addHeader("Content-Type", "application/json; charset=utf-8")
+					.addHeader("appKey", appKey)
+					.addHeader("Referer", appReferer)
+					.build();
+
+			if (callback == null) {
+				String content = execute(okReq);
+				return decodeContent(content, Place.AutocompleteResponse.class);
+
+			} else {
+				DownloadTask<Place.AutocompleteResponse> task = new DownloadTask<Place.AutocompleteResponse>(client, DownloadTask.PLACE_AUTOCOMPLETE, okReq, callback);
+				executor.submit(task);
+				return null;
+			}
+		}
+
 	}
 
 	/**
@@ -329,6 +374,7 @@ public class WSClient {
 		public static final int PLACE_SEARCH = 1;
 		public static final int PLACE_NEAREST = 2;
 		public static final int ROUTE_DIRECTIONS = 3;
+		public static final int PLACE_AUTOCOMPLETE = 4;
 
 		private final OkHttpClient client; 
 		private final int type;
@@ -360,6 +406,9 @@ public class WSClient {
 
 						} else if (type == PLACE_NEAREST) {
 							listener.onResponse((T) WSClient.decodeContent(content, Place.NearestResponse.class));
+
+						} else if (type == PLACE_AUTOCOMPLETE) {
+							listener.onResponse((T) WSClient.decodeContent(content, Place.AutocompleteResponse.class));
 
 						} else if (type == ROUTE_DIRECTIONS) {
 							listener.onResponse((T) WSClient.decodeContent(content, Route.Response.class));

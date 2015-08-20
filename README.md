@@ -169,6 +169,7 @@ req.radius = 100;
 ```
 
 If the radius is 0, only the nearest place will be returned. Otherwise, everything in the radius will be returned.
+Like the geocoding, reverse geocoding can be computed in a sync or async way.
 
 ```java
 // Sync request
@@ -179,6 +180,37 @@ oymClient.PlaceWS.nearest(req, new WSCallback<Place.NearestResponse>() {
 	@Override
 	public void onResponse(final Place.NearestResponse resp) {
 		// do something with the places found
+	}
+
+	@Override
+	public void onFailure(final String errorMessage) {
+		// handle error
+	}
+});
+```
+
+## Autocomplete
+
+Places suggests can be retrieved using *autocomplete* function. 
+Note that a suggest does not contain any location coordinate (so that the result may need to be geocoded afterward).
+All the parameters available for the request are described in the javadoc.
+
+```java
+final Place.AutocompleteRequest req = new Place.AutocompleteRequest();
+req.place = "rivo";
+```
+
+Like the geocoding, autocomplete can be computed in a sync or async way.
+
+```java
+// Sync request
+Place.AutocompleteResponse resp = oymClient.PlaceWS.autocomplete(req, null);
+
+// Async request
+oymClient.PlaceWS.uutocomplete(req, new WSCallback<Place.AutocompleteResponse>() {
+	@Override
+	public void onResponse(final Place.AutocompleteResponse resp) {
+		// do something with the suggested places
 	}
 
 	@Override
