@@ -207,7 +207,7 @@ Like the geocoding, autocomplete can be computed in a sync or async way.
 Place.AutocompleteResponse resp = oymClient.PlaceWS.autocomplete(req, null);
 
 // Async request
-oymClient.PlaceWS.uutocomplete(req, new WSCallback<Place.AutocompleteResponse>() {
+oymClient.PlaceWS.autocomplete(req, new WSCallback<Place.AutocompleteResponse>() {
 	@Override
 	public void onResponse(final Place.AutocompleteResponse resp) {
 		// do something with the suggested places

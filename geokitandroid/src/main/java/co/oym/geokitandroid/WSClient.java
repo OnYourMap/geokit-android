@@ -245,7 +245,7 @@ public class WSClient {
 		 * @return
 		 * @throws Exception
 		 */
-		public Place.AutocompleteResponse autocomplete(Place.NearestRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
+		public Place.AutocompleteResponse autocomplete(Place.AutocompleteRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
 			return autocomplete(appKey, request, callback);
 		}
 
@@ -258,7 +258,7 @@ public class WSClient {
 		 * @return
 		 * @throws Exception
 		 */
-		public Place.AutocompleteResponse autocomplete(String appKey, Place.NearestRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
+		public Place.AutocompleteResponse autocomplete(String appKey, Place.AutocompleteRequest request, final WSCallback<Place.AutocompleteResponse> callback) throws Exception {
 
 			String jsonObject = jsonify(request);
 
